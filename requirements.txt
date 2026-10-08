@@ -6,3 +6,5 @@ streamlit
 matplotlib
 seaborn
 jupyter
+plotly
+statsmodels
