@@ -1,38 +1,99 @@
-🚗 EV Battery Degradation & Range Prediction
+# 🚗 EV Battery Degradation & Range Prediction
 
-A machine learning project for predicting electric vehicle battery degradation and estimating EV driving range based on vehicle and battery-related features.
+A machine learning project for analyzing electric vehicle data and predicting **EV driving range** based on vehicle, battery, and driving-related features.
 
-🚀 Live Demo
+The project includes data preprocessing, exploratory data analysis, machine learning model training, model saving, and a **Streamlit web application** for interactive predictions.
+
+## 🚀 Live Demo
 
 Try the deployed application:
+
 https://ev-battery-degradation-range-prediction-cchtxkovxp8gjvsjdf5amk.streamlit.app/
 
-📌 Project Overview
+---
 
-Electric vehicle battery performance decreases over time due to factors such as battery usage, vehicle characteristics, driving conditions, and other operational parameters.
+## 📌 Project Overview
 
-This project uses machine learning to analyze electric vehicle data and build a predictive model for EV-related performance.
+Electric vehicle driving range can vary depending on several factors, including battery capacity, battery health, vehicle mileage, temperature, average speed, and charging cycles.
 
-The trained model is integrated with a Streamlit web application that provides a simple interface for making predictions.
+This project uses machine learning to analyze these factors and build a model that can estimate the **driving range of an electric vehicle in kilometers**.
 
-🎯 Objectives
-Predict EV battery degradation/performance.
-Estimate electric vehicle driving range.
-Process and analyze EV datasets.
-Train a machine learning model.
-Use trained models to make predictions.
-Provide predictions through an interactive web application.
-🛠️ Technologies Used
-Python
-Pandas
-NumPy
-Scikit-learn
-Joblib
-Streamlit
-Matplotlib
-Seaborn
-Jupyter Notebook
-📁 Project Structure
+The trained model is integrated with a Streamlit application, allowing users to enter vehicle and battery information and receive a predicted driving range.
+
+---
+
+## 🎯 Objectives
+
+* Analyze electric vehicle and battery-related data.
+* Perform data preprocessing and exploratory data analysis.
+* Identify relevant features for EV range prediction.
+* Train a machine learning regression model.
+* Save the trained model and preprocessing objects for reuse.
+* Build an interactive Streamlit application.
+* Deploy the application for online predictions.
+
+---
+
+## 🛠️ Technologies Used
+
+* **Python**
+* **Pandas**
+* **NumPy**
+* **Scikit-learn**
+* **Joblib**
+* **Streamlit**
+* **Matplotlib**
+* **Seaborn**
+* **Jupyter Notebook**
+
+---
+
+## 🤖 Machine Learning
+
+The project uses a **Random Forest Regression** model to predict EV driving range.
+
+### Features Used
+
+The model uses vehicle and battery-related features such as:
+
+* Battery Capacity
+* Battery Health
+* Mileage
+* Temperature
+* Average Speed
+* Charge Cycles
+* Vehicle Make
+* Drive Type
+
+### Machine Learning Workflow
+
+```text
+Raw Dataset
+     ↓
+Data Preprocessing
+     ↓
+Feature Selection
+     ↓
+Categorical Encoding
+     ↓
+Train-Test Split
+     ↓
+Feature Scaling
+     ↓
+Random Forest Regression
+     ↓
+Model Evaluation
+     ↓
+Save Model & Scaler
+     ↓
+Streamlit Prediction App
+```
+
+---
+
+## 📁 Project Structure
+
+```text
 EV-Battery-Degradation-Range-Prediction/
 │
 ├── app/
@@ -42,94 +103,187 @@ EV-Battery-Degradation-Range-Prediction/
 │   └── electricvehicleanalytics.csv
 │
 ├── model/
-│   ├── ledrive.pkl
-│   ├── lemake.pkl
+│   ├── le_drive.pkl
+│   ├── le_make.pkl
 │   ├── model.pkl
 │   └── scaler.pkl
 │
 ├── src/
-│   ├── Untitled.ipynb
+│   ├── EV_Battery_Analysis.ipynb
 │   ├── predict.py
 │   └── train_model.py
 │
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+```
 
-⚙️ Installation
-1. Clone the repository
-git clone https://github.com/yagnasreekamireddy/EV-Battery-Degradation-Range-Prediction.git
+---
 
-2. Navigate into the project
-cd EV-Battery-Degradation-Range-Prediction
-
-3. Create a virtual environment
-python -m venv venv
-
-4. Activate the virtual environment
-
-On Windows:
-
-venv\Scripts\activate
-
-5. Install the required packages
-pip install -r requirements.txt
-
-▶️ Running the Application
-
-Run the Streamlit application:
-
-streamlit run app/main.py
-
-
-The application will open in your browser and provide an interactive interface for making EV predictions.
-
-🤖 Machine Learning
-
-The project contains trained machine learning artifacts in the model/ directory.
-
-These include:
-
-model.pkl — trained prediction model
-scaler.pkl — feature scaling object
-le_make.pkl — vehicle make encoder
-le_drive.pkl — drive-type encoder
-
-The model training pipeline is available in:
-
-src/train_model.py
-
-
-Prediction functionality is available in:
-
-src/predict.py
-
-📊 Dataset
+## 📊 Dataset
 
 The project uses the following dataset:
 
+```text
 data/electricvehicleanalytics.csv
+```
 
+The dataset contains electric vehicle information related to vehicle characteristics, battery performance, driving conditions, and other factors that can influence EV driving range.
 
-The dataset contains electric vehicle-related information used for data analysis and machine learning.
+---
 
-📓 Jupyter Notebook
+## 🔍 Exploratory Data Analysis
 
-Exploratory data analysis and experimentation can be found in:
+Exploratory data analysis was performed using **Pandas, Matplotlib, and Seaborn** to understand the dataset and identify relationships between vehicle/battery features and driving range.
 
+The analysis includes:
+
+* Data inspection
+* Missing-value analysis
+* Feature analysis
+* Distribution analysis
+* Relationship analysis
+* Data visualization
+
+The complete analysis and experimentation can be found in:
+
+```text
 src/EV_Battery_Analysis.ipynb
+```
 
-🚀 Future Improvements
-Improve model accuracy using additional EV and battery datasets.
-Add battery State of Health (SoH) prediction.
-Add battery Remaining Useful Life (RUL) prediction.
-Compare multiple machine learning algorithms.
-Add interactive data visualizations.
-Add model performance metrics and prediction confidence.
-Improve the user interface and visualization of prediction results.
-👨‍💻 Author
+---
 
-Yagna Sree Kamireddy
+## 🧠 Model Training
+
+The model training pipeline is available in:
+
+```text
+src/train_model.py
+```
+
+The training process includes:
+
+1. Loading the dataset.
+2. Cleaning and preprocessing the data.
+3. Selecting relevant features.
+4. Encoding categorical features.
+5. Splitting the data into training and testing sets.
+6. Scaling numerical features using `StandardScaler`.
+7. Training a Random Forest Regression model.
+8. Saving the trained model and preprocessing objects.
+
+---
+
+## 🔮 Prediction
+
+Prediction functionality is available in:
+
+```text
+src/predict.py
+```
+
+The saved model and preprocessing objects are loaded to generate predictions for new EV data.
+
+---
+
+## 💾 Saved Model Artifacts
+
+The trained machine learning artifacts are stored in the `model/` directory.
+
+| File           | Purpose                                |
+| -------------- | -------------------------------------- |
+| `model.pkl`    | Trained Random Forest regression model |
+| `scaler.pkl`   | Feature scaling object                 |
+| `le_make.pkl`  | Vehicle make encoder                   |
+| `le_drive.pkl` | Drive-type encoder                     |
+
+These files allow the application to make predictions without retraining the model every time.
+
+---
+
+## 🌐 Streamlit Application
+
+The interactive web application is available in:
+
+```text
+app/main.py
+```
+
+Users can enter EV-related information through the interface and receive an estimated driving range.
+
+### Run the application locally
+
+```bash
+streamlit run app/main.py
+```
+
+The application will open in your browser.
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yagnasreekamireddy/EV-Battery-Degradation-Range-Prediction.git
+```
+
+### 2. Navigate into the project
+
+```bash
+cd EV-Battery-Degradation-Range-Prediction
+```
+
+### 3. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the virtual environment
+
+**Windows:**
+
+```bash
+venv\Scripts\activate
+```
+
+### 5. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 6. Run the Streamlit application
+
+```bash
+streamlit run app/main.py
+```
+
+---
+
+## 🚀 Future Improvements
+
+The project can be further improved by:
+
+* Adding larger and more diverse EV datasets.
+* Improving model accuracy through hyperparameter tuning.
+* Comparing Random Forest with other regression algorithms.
+* Adding dedicated **Battery State of Health (SoH)** prediction.
+* Adding **Remaining Useful Life (RUL)** prediction.
+* Adding more interactive visualizations.
+* Displaying model performance metrics in the application.
+* Adding prediction confidence or uncertainty estimates.
+* Improving the Streamlit user interface.
+* Adding real-time EV battery monitoring data.
+
+---
+
+## 👨‍💻 Author
+
+**Yagna Sree Kamireddy**
 
 GitHub:
+
 https://github.com/yagnasreekamireddy
